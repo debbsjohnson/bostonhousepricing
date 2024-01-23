@@ -3,9 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>House Price Prediction</title>
+    <!-- Add any additional styles or link to external stylesheets here -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            /* display: flex;
+            justify-content: center;
+            height: 100vh; */
+        }
+
+        .login {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* width: 100%; */
+            /* max-width: 600px; */
+            /* box-sizing: border-box; */
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-    <h1>hello please</h1>
+    <h1>Boston House Price Prediction</h1>
+    <div class="login">
+        
+    <form action="{{ url_for('predict') }}" method="post">
+        <label for="CRIM">Crime Rate (CRIM):</label>
+        <input type="text" id="CRIM" name="CRIM" placeholder="Enter crime rate" required>
+
+        <label for="ZN">Residential Zone (ZN):</label>
+        <input type="text" id="ZN" name="ZN" placeholder="Enter residential zone" required>
+
+        <label for="INDUS">Industrial Area (INDUS):</label>
+        <input type="text" id="INDUS" name="INDUS" placeholder="Enter industrial area" required>
+
+        <label for="CHAS">Charles River (CHAS):</label>
+        <input type="text" id="CHAS" name="CHAS" placeholder="Enter 1 for river, 0 otherwise" required>
+
+        <label for="NOX">Nitric Oxides Concentration (NOX):</label>
+        <input type="text" id="NOX" name="NOX" placeholder="Enter nitric oxides concentration" required>
+
+        <label for="RM">Number of Rooms (RM):</label>
+        <input type="text" id="RM" name="RM" placeholder="Enter number of rooms" required>
+
+        <label for="Age">Age of House (Age):</label>
+        <input type="text" id="Age" name="Age" placeholder="Enter age of house" required>
+
+        <label for="DIS">Weighted Distances (DIS):</label>
+        <input type="text" id="DIS" name="DIS" placeholder="DIS" required>
+
+        <label for="RAD">Radial Highways (RAD):</label>
+        <input type="text" id="RAD" name="RAD" placeholder="Enter number of rooms" required>
+
+        <label for="TAX">Property Tax Rate (TAX):</label>
+        <input type="text" id="TAX" name="TAX" placeholder="Enter tax" required>
+
+        <label for="PT">Pupil-Teacher Ratio by Town (PT):</label>
+        <input type="text" id="PT" name="PT" placeholder="Enter ratio" required>
+
+        <label for="B">Proportion of Blacks (B):</label>
+        <input type="text" id="B" name="B" placeholder="Enter proportion" required>
+
+        <label for="LSTAT">Percentage of Lower Status of the Population (LSTAT):</label>
+        <input type="text" id="LSTAT" name="LSTAT" placeholder="Enter number of %" required>
+
+        <!-- Add other input fields with placeholders for AGE, DIS, RAD, TAX, PT, B, LSTAT -->
+
+        <button type="submit">Predict Price</button>
+    </form>
+
+    </div>
+
+    {{prediction_text}}
+
 </body>
 </html>
